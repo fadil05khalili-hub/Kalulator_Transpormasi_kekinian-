@@ -1,27 +1,80 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="row justify-content-center py-5">
-    <div class="col-lg-8 text-center">
-        <h1 class="text-neon mb-4">Selamat Datang di <br><span class="fw-bold">Kalkulator Canggih Neon</span></h1>
-        <p class="text-neon opacity-75 fs-5">Pilih operasi yang ingin Anda lakukan dari menu di bawah ini.</p>
+<div class="row justify-content-center py-2">
+    <div class="col-lg-10">
         
-        <div class="d-flex flex-wrap gap-3 justify-content-center mt-5">
-            <a href="{{ url_for('aritmatika_bp.aritmatika') }}" class="btn btn-outline-neon p-4 fs-5 w-25">
-                <span class="d-block fs-1 mb-2">➕</span> Aritmatika
+        <!-- HEADER KAWAI -->
+        <div class="text-center mb-5">
+            <h1 class="text-accent mb-3 fw-bold" style="font-size: 3rem;">
+                ようこそ ✨ <br> <span style="font-size: 2.2rem; color: var(--text-main);">Selamat Datang di Sakura Calc</span>
+            </h1>
+            <p class="opacity-75 mx-auto fw-semibold" style="max-width: 600px; font-size: 1.1rem;">
+                Kalkulator multifungsi dengan estetika Jepang modern. Pilih mode operasi di bawah ini untuk memulai! 🌸
+            </p>
+        </div>
+        
+        <!-- BENTO GRID LAYOUT -->
+        <div class="bento-grid">
+            
+            <!-- Card 1: Aritmatika (Besar) -->
+            <a href="{{ url_for('aritmatika_bp.aritmatika') }}" class="text-decoration-none bento-span-2">
+                <div class="card-bento p-4 h-100 d-flex flex-column justify-content-center">
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="fs-1 me-3">➗</span>
+                        <h3 class="text-accent m-0 fw-bold">Aritmatika <br><small class="text-main fs-6">算術 (Sanjutsu)</small></h3>
+                    </div>
+                    <p class="text-main opacity-75 fw-semibold mb-0">Hitung operasi matematika dasar hingga lanjutan dengan penjelasan langkah yang detail dan mudah dipahami.</p>
+                </div>
             </a>
-            <a href="{{ url_for('logika_bp.logika') }}" class="btn btn-outline-neon p-4 fs-5 w-25">
-                <span class="d-block fs-1 mb-2">🧠</span> Logika
+            
+            <!-- Card 2: Logika (Besar) -->
+            <a href="{{ url_for('logika_bp.logika') }}" class="text-decoration-none bento-span-2">
+                <div class="card-bento p-4 h-100 d-flex flex-column justify-content-center">
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="fs-1 me-3">🧠</span>
+                        <h3 class="text-accent m-0 fw-bold">Logika Digital <br><small class="text-main fs-6">論理 (Ronri)</small></h3>
+                    </div>
+                    <p class="text-main opacity-75 fw-semibold mb-0">Simulasi gerbang logika (AND, OR, NOT, XOR) lengkap dengan tabel kebenaran untuk analisis sirkuit.</p>
+                </div>
             </a>
-            <a href="{{ url_for('konversi_bp.konversi') }}" class="btn btn-outline-neon p-4 fs-5 w-25">
-                <span class="d-block fs-1 mb-2">🔄</span> Konversi
+
+            <!-- Card 3: Konversi Bilangan (Standard) -->
+            <a href="{{ url_for('konversi_bp.konversi') }}" class="text-decoration-none">
+                <div class="card-bento p-4 h-100 d-flex flex-column align-items-center text-center justify-content-center">
+                    <span class="fs-2 mb-2">🔢</span>
+                    <h5 class="text-accent fw-bold mb-1">Sistem Bilangan</h5>
+                    <p class="text-main opacity-75 mb-0" style="font-size: 0.85rem;">Biner, Oktal, dll</p>
+                </div>
             </a>
-            <a href="{{ url_for('bonus_bp.bonus') }}" class="btn btn-outline-neon p-4 fs-5 w-25">
-                <span class="d-block fs-1 mb-2">🎁</span> Bonus
+
+            <!-- Card 4: Suhu (Standard) -->
+            <a href="{{ url_for('konversi_bp.konversi') }}" class="text-decoration-none">
+                <div class="card-bento p-4 h-100 d-flex flex-column align-items-center text-center justify-content-center">
+                    <span class="fs-2 mb-2">🌡️</span>
+                    <h5 class="text-accent fw-bold mb-1">Suhu</h5>
+                    <p class="text-main opacity-75 mb-0" style="font-size: 0.85rem;">Celcius ke Kelvin</p>
+                </div>
             </a>
-            <a href="{{ url_for('main_bp.riwayat') }}" class="btn btn-outline-neon p-4 fs-5 w-25">
-                <span class="d-block fs-1 mb-2">🕒</span> Riwayat
+
+            <!-- Card 5: Mata Uang (Standard) -->
+            <a href="{{ url_for('konversi_bp.konversi') }}" class="text-decoration-none">
+                <div class="card-bento p-4 h-100 d-flex flex-column align-items-center text-center justify-content-center">
+                    <span class="fs-2 mb-2">💴</span>
+                    <h5 class="text-accent fw-bold mb-1">Mata Uang</h5>
+                    <p class="text-main opacity-75 mb-0" style="font-size: 0.85rem;">Konversi Kurs</p>
+                </div>
             </a>
+
+            <!-- Card 6: Bonus (Standard) -->
+            <a href="{{ url_for('bonus_bp.bonus') }}" class="text-decoration-none">
+                <div class="card-bento p-4 h-100 d-flex flex-column align-items-center text-center justify-content-center" style="background: linear-gradient(135deg, rgba(255,183,197,0.4) 0%, rgba(255,255,255,0.6) 100%);">
+                    <span class="fs-2 mb-2">✨</span>
+                    <h5 class="text-accent fw-bold mb-1">Fitur Bonus</h5>
+                    <p class="text-main opacity-75 mb-0" style="font-size: 0.85rem;">Faktorial & Fibonacci</p>
+                </div>
+            </a>
+
         </div>
     </div>
 </div>

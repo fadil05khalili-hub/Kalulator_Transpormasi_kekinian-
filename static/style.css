@@ -1,145 +1,187 @@
-/* IMPOR FONT MODERN DARI GOOGLE */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
 
-/* PENGATURAN WARNA DASAR (VARIABEL) MENGGUNAKAN CSS ROOT */
 :root {
-    /* Base Color untuk Mode Gelap (Dark Mode) - SESUAI PERMINTAAN TEMA MERAH NEON */
-    --bg-dark: #0f0f0f;
-    --card-dark: #1a1a1a;
-    --text-dark: #e0e0e0;
+    /* Tema Anime Sakura (Pastel, Cerah, Lembut) */
+    --bg-overlay: rgba(255, 245, 247, 0.4);
+    --card-glass: rgba(255, 255, 255, 0.65);
+    --card-glass-hover: rgba(255, 255, 255, 0.85);
     
-    /* Base Color untuk Mode Terang (Light Mode) */
-    --bg-light: #f5f5f5;
-    --card-light: #ffffff;
-    --text-light: #111111;
+    --text-main: #4a4a4a;
+    --text-accent: #e84a5f; /* Soft Cherry Red */
     
-    /* Warna Kesatuan Akses Neon Merah */
-    --neon-red: #ff2a2a;
-    --neon-glow: rgba(255, 42, 42, 0.4);
+    --sakura-pink: #ffb7c5;
+    --sakura-pink-dark: #ff8fa3;
+    --soft-blue: #a3c4f3;
+    
+    --font-anime: 'Nunito', sans-serif;
 }
 
-/* SETELAN BODY BAWAAN */
+/* SETELAN BODY DENGAN BACKGROUND GAMBAR */
 body {
-    font-family: 'Inter', sans-serif;
-    transition: background-color 0.4s ease, color 0.4s ease; /* Transisi Halus */
+    font-family: var(--font-anime);
+    background-image: url('anime_bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-main);
     min-height: 100vh;
+    margin: 0;
 }
 
-/* KELAS DARK MODE (AKTIF DEFAULT) */
-body.dark-mode {
-    background-color: var(--bg-dark);
-    color: var(--text-dark);
+/* Overlay agar background tidak terlalu tajam/mengganggu teks */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: var(--bg-overlay);
+    z-index: -1;
 }
 
-body.dark-mode .card-neon {
-    background-color: var(--card-dark);
-    border: 1px solid var(--neon-red);
-    box-shadow: 0 0 10px var(--neon-glow);
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: var(--font-anime) !important;
+    font-weight: 800;
 }
 
-body.dark-mode .input-neon {
-    background-color: #222;
-    border: 1px solid #444;
-    color: white;
+/* KARTU BENTO GRID (GLASSMORPHISM) */
+.card-bento {
+    background-color: var(--card-glass);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(255, 183, 197, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
 }
 
-body.dark-mode .input-neon:focus {
-    background-color: #2a2a2a;
-    border: 1px solid var(--neon-red);
-    box-shadow: 0 0 8px var(--neon-glow);
-    color: white;
+.card-bento:hover {
+    background-color: var(--card-glass-hover);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 40px 0 rgba(255, 183, 197, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
-body.dark-mode .label-teks {
-    color: #ccc;
-}
-
-body.dark-mode .hasil-box {
-    background-color: rgba(255, 42, 42, 0.05);
-    border: 1px dashed var(--neon-red);
-}
-
-/* KELAS LIGHT MODE */
-body.light-mode {
-    background-color: var(--bg-light);
-    color: var(--text-light);
-}
-
-body.light-mode .card-neon {
-    background-color: var(--card-light);
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-body.light-mode .text-neon {
-    color: #cc0000 !important; /* Merah lebih gelap untuk teks di background putih */
-}
-
-body.light-mode .input-neon {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    color: #333;
-}
-
-body.light-mode .input-neon:focus {
-    border: 1px solid #cc0000;
-    box-shadow: 0 0 5px rgba(204, 0, 0, 0.3);
-}
-
-body.light-mode .hasil-box {
-    background-color: rgba(204, 0, 0, 0.05);
-    border: 1px dashed #cc0000;
-}
-
-/* CUSTOM TEKS NEON */
-.text-neon {
-    color: var(--neon-red);
-    text-shadow: 0 0 5px var(--neon-glow);
-}
-
-/* TOMBOL KHUSUS NEON */
-.btn-outline-neon {
-    color: var(--neon-red);
-    border: 1px solid var(--neon-red);
-    background-color: transparent;
+/* INPUT FORM LEMBUT */
+.input-anime {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid var(--sakura-pink);
+    color: var(--text-main);
+    font-family: var(--font-anime);
+    border-radius: 100px;
+    padding: 10px 20px;
     transition: all 0.3s ease;
 }
 
-.btn-outline-neon:hover {
-    background-color: var(--neon-red);
+.input-anime:focus {
+    background-color: #ffffff;
+    border-color: var(--text-accent);
+    box-shadow: 0 0 0 0.25rem rgba(255, 183, 197, 0.5);
+    outline: none;
+}
+
+.label-teks {
+    color: var(--text-accent);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* TOMBOL PILL ANIME */
+.btn-anime {
+    background: linear-gradient(135deg, var(--sakura-pink) 0%, var(--sakura-pink-dark) 100%);
     color: white;
-    box-shadow: 0 0 15px var(--neon-glow);
-}
-
-/* KUSTOMISASI BOOTSTRAP TABS */
-.custom-tabs {
-    border-bottom: 1px solid #444;
-}
-
-body.light-mode .custom-tabs {
-    border-bottom: 1px solid #ddd;
-}
-
-.custom-tabs .nav-link {
     border: none;
-    border-bottom: 2px solid transparent;
-    border-radius: 0;
-    opacity: 0.6;
+    border-radius: 100px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 12px 24px;
+    box-shadow: 0 4px 15px rgba(255, 143, 163, 0.4);
+    transition: all 0.3s ease;
 }
 
-.custom-tabs .nav-link.active {
-    background: transparent !important;
-    border-bottom: 2px solid var(--neon-red);
-    opacity: 1;
-    font-weight: bold;
+.btn-anime:hover {
+    background: linear-gradient(135deg, var(--sakura-pink-dark) 0%, var(--text-accent) 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(232, 74, 95, 0.5);
 }
 
-body.dark-mode .custom-tabs .nav-link.active {
-    color: var(--neon-red) !important;
+/* Opsi Operator Berupa Tombol Pill */
+.btn-outline-anime {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: var(--text-accent);
+    border: 2px solid var(--sakura-pink);
+    border-radius: 100px;
+    font-weight: 700;
+    transition: all 0.3s ease;
 }
 
-/* GARIS PEMBATAS SEDERHANA */
-.garis-pembatas {
-    border-color: #555;
-    opacity: 0.3;
+.btn-outline-anime:hover, .btn-check:checked + .btn-outline-anime {
+    background-color: var(--sakura-pink);
+    color: white;
+    border-color: var(--sakura-pink);
+    box-shadow: 0 4px 10px rgba(255, 183, 197, 0.6);
+}
+
+/* KUSTOMISASI NAVBAR PILL */
+.navbar-pill {
+    background-color: var(--card-glass);
+    backdrop-filter: blur(15px);
+    border-radius: 100px;
+    padding: 10px 30px;
+    box-shadow: 0 8px 32px 0 rgba(255, 183, 197, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    margin-top: 20px;
+}
+
+.nav-link.anime-link {
+    color: var(--text-main);
+    font-weight: 700;
+    border-radius: 100px;
+    padding: 8px 20px !important;
+    transition: all 0.3s;
+}
+
+.nav-link.anime-link:hover {
+    background-color: var(--sakura-pink);
+    color: white;
+}
+
+/* TEKS AKSEN */
+.text-accent {
+    color: var(--text-accent);
+}
+.text-sakura {
+    color: var(--sakura-pink-dark);
+}
+
+/* BENTO GRID UTILITIES */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(180px, auto);
+    gap: 20px;
+}
+
+.bento-span-2 {
+    grid-column: span 2;
+}
+.bento-span-row-2 {
+    grid-row: span 2;
+}
+
+@media (max-width: 991px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 576px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    .bento-span-2 {
+        grid-column: span 1;
+    }
 }
