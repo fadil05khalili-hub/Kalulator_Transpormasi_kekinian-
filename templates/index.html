@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center py-5">
+    <div class="col-lg-8 text-center">
+        <h1 class="text-neon mb-4">Selamat Datang di <br><span class="fw-bold">Kalkulator Canggih Neon</span></h1>
+        <p class="text-neon opacity-75 fs-5">Pilih operasi yang ingin Anda lakukan dari menu di bawah ini.</p>
+        
+        <div class="d-flex flex-wrap gap-3 justify-content-center mt-5">
+            <a href="{{ url_for('aritmatika_bp.aritmatika') }}" class="btn btn-outline-neon p-4 fs-5 w-25">
+                <span class="d-block fs-1 mb-2">➕</span> Aritmatika
+            </a>
+            <a href="{{ url_for('logika_bp.logika') }}" class="btn btn-outline-neon p-4 fs-5 w-25">
+                <span class="d-block fs-1 mb-2">🧠</span> Logika
+            </a>
+            <a href="{{ url_for('konversi_bp.konversi') }}" class="btn btn-outline-neon p-4 fs-5 w-25">
+                <span class="d-block fs-1 mb-2">🔄</span> Konversi
+            </a>
+            <a href="{{ url_for('bonus_bp.bonus') }}" class="btn btn-outline-neon p-4 fs-5 w-25">
+                <span class="d-block fs-1 mb-2">🎁</span> Bonus
+            </a>
+            <a href="{{ url_for('main_bp.riwayat') }}" class="btn btn-outline-neon p-4 fs-5 w-25">
+                <span class="d-block fs-1 mb-2">🕒</span> Riwayat
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

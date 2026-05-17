@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row g-4">
+    <div class="col-lg-7">
+        <div class="card card-neon p-4">
+            <h3 class="text-neon mb-4">⚙️ Menu Aritmatika</h3>
+            <form action="{{ url_for('aritmatika_bp.aritmatika') }}" method="POST">
+                <div class="row g-3">
+                    <div class="col-md-5">
+                        <label class="form-label label-teks">Angka Pertama</label>
+                        <input type="number" step="any" name="angka1" class="form-control input-neon" required>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label label-teks">Operator</label>
+                        <select name="operator" class="form-select input-neon">
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                            <option value="x">×</option>
+                            <option value="/">÷</option>
+                            <option value="pangkat">^</option>
+                            <option value="akar">√</option>
+                            <option value="modulus">%</option>
+                            <option value="floor">//</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <label class="form-label label-teks">Angka Kedua</label>
+                        <input type="number" step="any" name="angka2" class="form-control input-neon">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-outline-neon w-100 mt-4">Eksekusi Aritmatika 🚀</button>
+            </form>
+        </div>
+    </div>
+
+    {% include 'output.html' %}
+</div>
+{% endblock %}

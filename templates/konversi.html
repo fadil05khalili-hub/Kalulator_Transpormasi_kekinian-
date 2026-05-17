@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row g-4">
+    <div class="col-lg-7">
+        <div class="card card-neon p-4">
+            <h3 class="text-neon mb-4">🔄 Menu Konversi</h3>
+            
+            <form action="{{ url_for('konversi_bp.konversi') }}" method="POST" class="mb-4">
+                <h6 class="text-neon mb-2">1. Konversi Basis Angka</h6>
+                <input type="hidden" name="kategori" value="basis">
+                <div class="d-flex gap-2">
+                    <input type="text" name="angka_basis" class="form-control input-neon w-50" placeholder="Masukkan Angka" required>
+                    <select name="basis_asal" class="form-select input-neon w-50">
+                        <option value="desimal">Bentuk Desimal (10)</option>
+                        <option value="biner">Bentuk Biner (2)</option>
+                        <option value="oktal">Bentuk Oktal (8)</option>
+                        <option value="hexa">Bentuk Hexa (16)</option>
+                    </select>
+                    <button type="submit" class="btn btn-outline-neon">Konversi</button>
+                </div>
+            </form>
+            <hr class="garis-pembatas">
+            
+            <form action="{{ url_for('konversi_bp.konversi') }}" method="POST" class="mb-4 pt-1">
+                <h6 class="text-neon mb-2">2. Konversi Suhu (°C -> F, K, R)</h6>
+                <input type="hidden" name="kategori" value="suhu">
+                <div class="d-flex gap-2">
+                    <input type="number" step="any" name="suhu" class="form-control input-neon" placeholder="Suhu dalam Celcius" required>
+                    <button type="submit" class="btn btn-outline-neon">Konversi</button>
+                </div>
+            </form>
+            <hr class="garis-pembatas">
+
+            <form action="{{ url_for('konversi_bp.konversi') }}" method="POST" class="pt-1">
+                <h6 class="text-neon mb-2">3. Konversi Mata Uang (IDR -> All)</h6>
+                <input type="hidden" name="kategori" value="uang">
+                <div class="d-flex gap-2">
+                    <input type="number" step="any" name="uang_idr" class="form-control input-neon" placeholder="Rp / IDR (Contoh: 100000)" required>
+                    <button type="submit" class="btn btn-outline-neon">Konversi</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% include 'output.html' %}
+</div>
+{% endblock %}

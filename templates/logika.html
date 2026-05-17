@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row g-4">
+    <div class="col-lg-7">
+        <div class="card card-neon p-4">
+            <h3 class="text-neon mb-4">🧠 Menu Logika</h3>
+            <form action="{{ url_for('logika_bp.logika') }}" method="POST">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-4">
+                        <label class="form-label label-teks">Input B1</label>
+                        <select name="bool1" class="form-select input-neon">
+                            <option value="1">True (1)</option>
+                            <option value="0">False (0)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label label-teks">Gerbang Logika</label>
+                        <select name="operator" class="form-select input-neon text-center fw-bold">
+                            <option value="and">AND</option>
+                            <option value="or">OR</option>
+                            <option value="not">NOT</option>
+                            <option value="xor">XOR</option>
+                            <option value="nand">NAND</option>
+                            <option value="nor">NOR</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label label-teks">Input B2</label>
+                        <select name="bool2" class="form-select input-neon">
+                            <option value="1">True (1)</option>
+                            <option value="0">False (0)</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-outline-neon w-100 mt-4">Evaluasi Logika 🔥</button>
+            </form>
+        </div>
+    </div>
+
+    {% include 'output.html' %}
+</div>
+{% endblock %}

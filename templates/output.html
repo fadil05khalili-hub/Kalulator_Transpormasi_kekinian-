@@ -1,0 +1,48 @@
+<div class="col-lg-5">
+    <div class="card card-neon p-4 mb-4">
+        <h4 class="text-neon border-bottom border-danger pb-2 mb-3">📋 Output Terkini</h4>
+        
+        {% if hasil is not none %}
+            <div class="hasil-box p-3 mb-3 rounded">
+                <small class="d-block mb-1 opacity-75">Rumus Terpakai:</small>
+                <strong class="fs-5 text-warning">{{ rumus }}</strong>
+                <hr class="my-2 border-danger opacity-50">
+                <small class="d-block mb-1 opacity-75">HASIL AKHIR:</small>
+                <h2 class="text-neon text-break">{{ hasil }}</h2>
+            </div>
+            
+            <div class="langkah-box p-3 rounded">
+                <h6 class="text-neon">Langkah - Langkah:</h6>
+                <ul class="mb-0 ps-3">
+                    {% for step in langkah %}
+                        <li class="opacity-75">{{ step }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% else %}
+            <div class="text-center py-4 opacity-50">
+                <em>Silakan lakukan operasi di sebelah kiri. <br> Hasil akan muncul di sini.</em>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="card card-neon p-4">
+        <h5 class="text-neon border-bottom border-danger pb-2 mb-3">🕒 Riwayat Server</h5>
+        
+        {% if history %}
+            <div class="history-container overflow-auto" style="max-height: 250px;">
+                {% for item in history %}
+                    <div class="history-item p-2 mb-2 rounded bg-opacity-10 bg-danger">
+                        <span class="badge bg-danger">{{ item.tipe }}</span>
+                        <small class="d-block mt-1 text-break">Rumus: {{ item.rumus }}</small>
+                        <strong class="d-block text-neon text-break">Hasil: {{ item.hasil }}</strong>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center py-2 opacity-50">
+                <em>Sistem baru dinyalakan. Riwayat kosong.</em>
+            </div>
+        {% endif %}
+    </div>
+</div>

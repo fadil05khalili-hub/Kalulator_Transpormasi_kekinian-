@@ -1,0 +1,145 @@
+/* IMPOR FONT MODERN DARI GOOGLE */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+/* PENGATURAN WARNA DASAR (VARIABEL) MENGGUNAKAN CSS ROOT */
+:root {
+    /* Base Color untuk Mode Gelap (Dark Mode) - SESUAI PERMINTAAN TEMA MERAH NEON */
+    --bg-dark: #0f0f0f;
+    --card-dark: #1a1a1a;
+    --text-dark: #e0e0e0;
+    
+    /* Base Color untuk Mode Terang (Light Mode) */
+    --bg-light: #f5f5f5;
+    --card-light: #ffffff;
+    --text-light: #111111;
+    
+    /* Warna Kesatuan Akses Neon Merah */
+    --neon-red: #ff2a2a;
+    --neon-glow: rgba(255, 42, 42, 0.4);
+}
+
+/* SETELAN BODY BAWAAN */
+body {
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.4s ease, color 0.4s ease; /* Transisi Halus */
+    min-height: 100vh;
+}
+
+/* KELAS DARK MODE (AKTIF DEFAULT) */
+body.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+body.dark-mode .card-neon {
+    background-color: var(--card-dark);
+    border: 1px solid var(--neon-red);
+    box-shadow: 0 0 10px var(--neon-glow);
+}
+
+body.dark-mode .input-neon {
+    background-color: #222;
+    border: 1px solid #444;
+    color: white;
+}
+
+body.dark-mode .input-neon:focus {
+    background-color: #2a2a2a;
+    border: 1px solid var(--neon-red);
+    box-shadow: 0 0 8px var(--neon-glow);
+    color: white;
+}
+
+body.dark-mode .label-teks {
+    color: #ccc;
+}
+
+body.dark-mode .hasil-box {
+    background-color: rgba(255, 42, 42, 0.05);
+    border: 1px dashed var(--neon-red);
+}
+
+/* KELAS LIGHT MODE */
+body.light-mode {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+}
+
+body.light-mode .card-neon {
+    background-color: var(--card-light);
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+body.light-mode .text-neon {
+    color: #cc0000 !important; /* Merah lebih gelap untuk teks di background putih */
+}
+
+body.light-mode .input-neon {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+}
+
+body.light-mode .input-neon:focus {
+    border: 1px solid #cc0000;
+    box-shadow: 0 0 5px rgba(204, 0, 0, 0.3);
+}
+
+body.light-mode .hasil-box {
+    background-color: rgba(204, 0, 0, 0.05);
+    border: 1px dashed #cc0000;
+}
+
+/* CUSTOM TEKS NEON */
+.text-neon {
+    color: var(--neon-red);
+    text-shadow: 0 0 5px var(--neon-glow);
+}
+
+/* TOMBOL KHUSUS NEON */
+.btn-outline-neon {
+    color: var(--neon-red);
+    border: 1px solid var(--neon-red);
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-neon:hover {
+    background-color: var(--neon-red);
+    color: white;
+    box-shadow: 0 0 15px var(--neon-glow);
+}
+
+/* KUSTOMISASI BOOTSTRAP TABS */
+.custom-tabs {
+    border-bottom: 1px solid #444;
+}
+
+body.light-mode .custom-tabs {
+    border-bottom: 1px solid #ddd;
+}
+
+.custom-tabs .nav-link {
+    border: none;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    opacity: 0.6;
+}
+
+.custom-tabs .nav-link.active {
+    background: transparent !important;
+    border-bottom: 2px solid var(--neon-red);
+    opacity: 1;
+    font-weight: bold;
+}
+
+body.dark-mode .custom-tabs .nav-link.active {
+    color: var(--neon-red) !important;
+}
+
+/* GARIS PEMBATAS SEDERHANA */
+.garis-pembatas {
+    border-color: #555;
+    opacity: 0.3;
+}

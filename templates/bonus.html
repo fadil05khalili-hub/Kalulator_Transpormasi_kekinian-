@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row g-4">
+    <div class="col-lg-7">
+        <div class="card card-neon p-4">
+            <h3 class="text-neon mb-4">🎁 Menu Bonus</h3>
+            <form action="{{ url_for('bonus_bp.bonus') }}" method="POST">
+                <h6 class="text-neon mb-2">Program Bonus Mahasiswa</h6>
+                <div class="d-flex gap-2 mt-3">
+                    <select name="jenis_bonus" class="form-select input-neon w-50">
+                        <option value="faktorial">Hitung Faktorial (!)</option>
+                        <option value="fibonacci">Deret Fibonacci</option>
+                    </select>
+                    <input type="number" name="angka_bonus" class="form-control input-neon w-50" placeholder="Angka Bebas (Max 100)" required>
+                    <button type="submit" class="btn btn-outline-neon">Generate</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% include 'output.html' %}
+</div>
+{% endblock %}
